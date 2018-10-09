@@ -1,8 +1,13 @@
 Just type "make" to compile server , file_reader
 It might have errors with different kinds of browsers. The Chrome and Safari is somehow not working. The Firefox is good.
 
+Run the following command to launch a server
 
+./server <port num> <log file>
 
+With a browser, try the following command to execute the program "file_reader" to read Makefile
+
+http://your-ip:$port_num/file_reader?filename=Makefile
 
 Can:
 
