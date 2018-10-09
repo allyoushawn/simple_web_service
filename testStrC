@@ -1,0 +1,107 @@
+/*This is testStrC*/
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+
+
+int checkLegalHeader(char*);
+int checkQuery(char*msg);
+
+int main()
+{
+	char x[] = "filename=";
+	char a[] = "cd" ;
+	char contraint[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_1234567890";
+	char filename[256] ;
+	memset(filename , '\0' , sizeof(filename));
+
+	char* axc = NULL;
+	char header[] = "filename=";
+
+	//fprintf(stderr, "size of x is %d\n",strlen(x) );
+	char b[] = "xc" ;
+	memset(b , '\0' , sizeof(b));
+	
+
+	int result = checkQuery(axc);
+
+	if(result == 0) fprintf(stderr, "Legal header!\n");
+	else fprintf(stderr, "Illegal!\n");
+
+	//strncpy(b , x+4 ,1);
+	b[0] = x[2];
+	//memset(b+1 , '\0' , sizeof(char));
+	printf("x is %s\n", x);
+
+	/*
+	printf("%s\n", b);
+	char* test = NULL;
+	test = strpbrk(x , b);
+	if(test == NULL)
+	  printf("No such char!\n");
+	else
+	  printf("%s\n" , test);*/
+
+	
+	int wrong = 0;
+	int compare;
+	if(a == NULL)
+		wrong = 1;
+	if(wrong==0)
+	    compare = strncmp(header , a , 9);
+
+
+
+
+	
+
+	/*
+	if(compare == 0&&wrong == 0)
+		fprintf(stderr, "Yes! Header is the legal!\n");
+	else
+		fprintf(stderr, "Illegal header...\n" );
+
+	if(wrong == 0)
+	{
+		size_t sizeOfQuery = strlen(x);
+		sizeOfQuery -=9;
+		strncpy(filename , x+9 , sizeOfQuery);
+		fprintf(stderr, "filename is %s\n", filename);
+	}
+
+	*/
+
+	return 0 ;
+}
+
+int checkLegalHeader( char* msg)
+{
+	int i ;
+
+	char contraint[] = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_1234567890";
+	for(i = 0 ; i < strlen(msg) ; i++)
+	{
+		char* test = NULL;
+		char unit[2];
+		memset(unit , '\0' , sizeof(unit));
+		unit[0] = msg[i];
+		test = strpbrk( contraint,&unit[0] );
+		if(test == NULL){
+			fprintf(stderr, "Not Valid char! , %s \n" , &unit[0]);
+			exit(0);
+			break;
+		}
+	}
+
+	fprintf(stderr, "Valid char!\n" );
+	exit(0);
+}
+
+int checkQuery(char*msg)
+{
+	if(msg == NULL) return -1;
+	if(strlen(msg)<=9) return -1;
+	char header[] = "filename=";
+	int compare = strncmp(header , msg , 9);
+	if(compare == 0) return 0;
+}

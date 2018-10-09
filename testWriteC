@@ -1,0 +1,22 @@
+/*This is testWriteC*/
+#include <stdio.h>
+#include <fcntl.h>
+#include <string.h>
+
+int main()
+{
+	int fd = open("yuki.txt" , O_WRONLY);
+	char msg[] = "all you shame";
+
+	char pauseMsg[] = "This is Pause\n";
+	int numberX = 15;
+	write(fd , numberX , strlen(numberX));
+	//write(fd , pauseMsg,strlen(pauseMsg));
+	//write(fd,msg , 4);
+
+	close(fd);
+	return 0;
+	
+
+
+}

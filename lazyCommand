@@ -1,0 +1,22 @@
+fprintf(stderr, "requestP[conn_fd].file is %s\n", requestP[conn_fd].file);
+fprintf(stderr, "requestP[conn_fd].query is %s\n", requestP[conn_fd].query);
+fprintf(stderr, "requestP[conn_fd].host is %s\n", requestP[conn_fd].host);
+fprintf(stderr, "requestP[conn_fd].buf is %s\n", requestP[conn_fd].buf);
+fprintf(stderr, "buf len is %d\n",requestP[conn_fd].buf_len );
+char x[] = "This is \nTest\nFile\n";
+
+sprintf( id, "%d", judge_id);
+
+
+userNo = 4;
+fprintf(stderr, "userNo %d , buf_len %d , buf_idx %d \n",userNo,requestP[userNo].buf_len , requestP[userNo].buf_idx );
+
+fprintf(stderr, "set userNo %d readSet!\n", userNo);
+fprintf(stderr, "set fd %d to be looked...\n", talkToServer[userNo][0]);
+
+ fprintf(stderr, "userNo %d , buf_len %d , buf_idx %d \n",userNo,requestP[userNo].buf_len , requestP[userNo].buf_idx );
+
+//TA
+fprintf( stderr, "writing (buf %p, idx %d) %d bytes to request fd %d\n", requestP[conn_fd].buf, (int) requestP[conn_fd].buf_idx,(int) requestP[conn_fd].buf_len, requestP[conn_fd].conn_fd );
+
+fprintf( stderr, "complete writing %d bytes on fd %d\n", nwritten, requestP[conn_fd].conn_fd );
